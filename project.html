@@ -117,7 +117,7 @@
             display: flex; 
             align-items: center; 
             height: 70px; /* Aumentado para acomodar mejor los botones */
-            justify-content: space-between; /* Para separar los elementos */
+            justify-content: flex-end; /* Alinear el botón a la derecha */
         }
 
         /* Estilo para el botón de agendar cita */
@@ -278,12 +278,6 @@
                 padding: 15px;
             }
 
-            .header-assistant-btn {
-                margin-top: 10px;
-                width: 100%;
-                text-align: center;
-            }
-
             .appointment-button {
                 width: 100%;
                 margin-top: 10px;
@@ -328,7 +322,6 @@
 
     <section class="hero-section">
       <div class="container">
-        <img src="Imagenes/logomiidt.png" class="miidt-logo" >
         <h1>Consultorio Dental</h1>
       </div>
     </section>
@@ -459,9 +452,8 @@
         <div class="content-card fade-in-section cta-section">
             <h2 class="section-title">Inicia tu Consulta</h2>
             <p class="main-cta-text"> Puedes usar el botón de abajo para iniciar tu proceso de consulta.</p>
-            <p class="google-notice"><strong>Nota:</strong> Se requiere una cuenta de Google para utilizar el asistente interactivo.</p>
             <div class="button-group">
-                <a href="#" class="cta-button" id="go-to-assistant-btn"><i class="fas fa-arrow-right"></i> Ir al Asistente</a>
+                
             </div>
         </div>
     </main>
@@ -474,7 +466,7 @@
                 <a href="https://facebook.com" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
                 <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
                 <a href="https://twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="https://whatsapp.com" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/52123456789" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p style="margin-top: 20px;">© 2023 Consultorio Dental. Todos los derechos reservados.</p>
         </div>
@@ -536,22 +528,10 @@
             // Lógica para el botón de agendar cita
             const appointmentBtn = document.getElementById('appointment-btn');
             appointmentBtn.addEventListener('click', function() {
-                // Aquí puedes agregar la lógica para abrir un formulario de cita
-                alert('Próximamente: Formulario de agendamiento de citas');
-                // O redirigir a una página de agendamiento
-                // window.location.href = '/agendar-cita';
+                window.location.href = 'mailto:consultorio@ejemplo.com?subject=Cita%20Dental&body=Hola,%20me%20gustaría%20agendar%20una%20cita.';
             });
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // URLs y IDs
-            const NOTEBOOKLM_CHAT_URL = "https://notebooklm.google.com/notebook/a07b0d8e-2f0e-4efe-b084-fd2fbf685fc1?authuser=1";
-
-            // Lógica General y Event Listeners
-            function goToChat() { window.open(NOTEBOOKLM_CHAT_URL, '_blank'); }
-            
-            document.getElementById('go-to-assistant-btn')?.addEventListener('click', goToChat);
-
+            // Acordeón
             document.querySelectorAll('.accordion-header').forEach(header => {
                 header.addEventListener('click', function() {
                     const panel = this.nextElementSibling;
@@ -572,6 +552,7 @@
                 });
             });
 
+            // Efecto de aparición gradual
             const sections = document.querySelectorAll('.fade-in-section');
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
